@@ -1,16 +1,18 @@
+# ISOファイル名: YUKKRI_LINUX_YYYYMMDD-amd64-hybrid.iso
 LIVE_IMAGE="YUKKURI_LINUX_`date +%Y%m%d`"
-CHROOT_DIR="config/includes.chroot_after_packages"
+
 RESOURCES="resources"
+
+CHROOT_DIR="config/includes.chroot_after_packages"
 PACKAGE_LISTS="config/package-lists"
 
 buildconfig:
-	# create Live Build config 
+# Live Build の config ディレクトリを作成する．
+# ベースはbullsye， 
 	lb config \
 	--apt apt \
 	--architecture amd64 \
 	--distribution bullesye  \
-	--parent-distribution bullesye \
-	--parent-debian-installer-distribution bullesye \
 	--archive-areas "main contrib non-free" \
 	--mirror-bootstrap "http://deb.debian.org/debian" \
 	--mirror-chroot "http://deb.debian.org/debian" \
@@ -18,8 +20,9 @@ buildconfig:
 	--bootappend-live "boot=live components debug=1" \
 	--image-name "${LIVE_IMAGE}"
 
-	echo "copy resource files."
+# rootfsに適用するファイルを config にコピーする
 	cp -pr ${RESOURCES}/rootfs/* ${CHROOT_DIR}
+# ライブイメージに導入するパッケージのリストを config にコピーする
 	cp -pr ${RESOURCES}/package-lists/* ${PACKAGE_LISTS}
 	
 bootstrap: buildconfig

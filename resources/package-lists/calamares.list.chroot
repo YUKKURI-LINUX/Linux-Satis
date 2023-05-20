@@ -3,3 +3,4 @@ calamares-extensions
 calamares-extensions-data
 calamares-settings-debian
 squashfs-tools
+dosfstools

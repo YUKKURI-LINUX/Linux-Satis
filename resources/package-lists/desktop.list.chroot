@@ -1,19 +1,61 @@
-task-japanese
+# Xfce4 デスクトップ環境
+task-japanese-desktop
+xfce4
 
-gnome-core
-gnome-tweaks
-gnome-shell-extensions
-gnome-shell-extension-manager
-gnome-shell-extension-kimpanel
-gnome-shell-extension-dashtodock
-gnome-shell-extension-hide-activities
+# Lightdm 
+lightdm
+slick-greeter
 
-gdm3
+# Firefox-esr ブラウザ
+firefox-esr
+firefox-esr-l10n-ja
+
+# Thunderbird メーラ
+thunderbird
+thunderbird-l10n-ja
+
+# フォント
 fonts-noto
 fonts-vlgothic
 
-fcitx5
-fcitx5-mozc
-fcitx5-skk
+# 日本語入力 uim-mozc
+uim
+uim-data
+uim-fep
+uim-gtk2.0
+uim-gtk2.0-immodule
+uim-gtk3
+uim-gtk3-immodule
+uim-mozc
+uim-plugins
+uim-qt5
+uim-qt5-immodule
+uim-xim
 
+# policykit
+policykit-1-gnome
 
+# automount
+gvfs
+eject
+autofs
+
+# 音量
+pulseaudio
+pavucontrol
+
+# 無線LAN
+network-manager
+network-manager-gnome
+wpasupplicant
+
+# エティタ
+vim
+vim-gtk3
+emacs
+
+# bash補完
+bash-completion
+
+# sudo
+sudo
