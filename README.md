@@ -24,7 +24,7 @@ Debian 11以上がインストールされたamd64(x86_64)PCを推奨
 ### ビルド方法
 ビルド手順は以下のとおり．
 ```
-git clone https://github.com/YUKKURI-LINUX/Linux-Satis.git YUKKURI-Linux
+git clone https://github.com/YUKKURI-LINUX/YK-LINUX-LiveBuild.git YUKKURI-Linux
 cd YUKKURI-Linux
 make build
 ```
