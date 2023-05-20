@@ -1,19 +1,17 @@
-LIVE_IMAGE="Satis-Live-`date +%Y%m%d`"
+LIVE_IMAGE="YUKKURI_LINUX_`date +%Y%m%d`"
 CHROOT_DIR="config/includes.chroot_after_packages"
-ROOTFS_RESOURCES="resources/rootfs"
+RESOURCES="resources"
 PACKAGE_LISTS="config/package-lists"
-PACKAGE_LISTS_RESOURCES="resources/package-lists"
 
 buildconfig:
-	echo "create live config files."
+	# create Live Build config 
 	lb config \
 	--apt apt \
-	--apt-recommends false \
 	--architecture amd64 \
-	--distribution bookworm  \
-	--parent-distribution bookworm \
-	--parent-debian-installer-distribution bookworm \
-	--archive-areas "main contrib non-free non-free-firmware" \
+	--distribution bullesye  \
+	--parent-distribution bullesye \
+	--parent-debian-installer-distribution bullesye \
+	--archive-areas "main contrib non-free" \
 	--mirror-bootstrap "http://deb.debian.org/debian" \
 	--mirror-chroot "http://deb.debian.org/debian" \
 	--mirror-binary "http://deb.debian.org/debian" \
@@ -21,8 +19,8 @@ buildconfig:
 	--image-name "${LIVE_IMAGE}"
 
 	echo "copy resource files."
-	cp -pr ${ROOTFS_RESOURCES}/* ${CHROOT_DIR}
-	cp -pr ${PACKAGE_LISTS_RESOURCES}/* ${PACKAGE_LISTS}
+	cp -pr ${RESOURCES}/rootfs/* ${CHROOT_DIR}
+	cp -pr ${RESOURCES}/package-lists/* ${PACKAGE_LISTS}
 	
 bootstrap: buildconfig
 	sudo lb bootstrap
